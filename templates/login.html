@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 按需预订自选投放积分决策系统</title>
+    <link href="{{ url_for('static', filename='vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.min.css') }}" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1f5aa8;
+            --body-bg: #f2f3f5;
+            --border: #dfe2e7;
+            --text: #333333;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: var(--body-bg);
+            font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .login-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            width: 380px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 4px solid #1f5aa8;
+            border-radius: 6px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+        .logo-mark {
+            width: 44px; height: 44px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin: 0 auto 0.8rem auto;
+        }
+        .login-title {
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.2rem;
+        }
+        .login-sub {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 1.6rem;
+        }
+        .form-label {
+            font-weight: 500;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(31, 90, 168, 0.1);
+        }
+        footer.login-footer {
+            margin-top: 1.6rem;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrap">
+        <div class="login-card">
+            <div class="logo-mark">积</div>
+            <div class="login-title">按需预订自选投放积分决策系统</div>
+            <div class="login-sub">卷烟经营 · 预订/销售积分测算与周期管理</div>
+
+            {% if error %}
+            <div class="alert alert-danger py-2 small"><i class="bi bi-exclamation-circle me-1"></i>{{ error }}</div>
+            {% endif %}
+
+            <form method="POST" action="/login">
+                <div class="mb-3">
+                    <label class="form-label">用户名</label>
+                    <input type="text" name="username" class="form-control" autocomplete="username" required autofocus>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">密码</label>
+                    <input type="password" name="password" class="form-control" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> 登 录
+                </button>
+            </form>
+            <footer class="login-footer">本系统计算结果仅供业务参考 · V1.0</footer>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
