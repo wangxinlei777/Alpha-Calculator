@@ -1,0 +1,9 @@
+{
+    "admin": {
+        "display_name": "系统管理员",
+        "role": "admin",
+        "salt": "f70730f36b440a1e",
+        "hash": "b107045f6a0c9f68c0dcb3a34338630e56fb87a0502c5526178fc0530ece8586",
+        "created_at": "2026-08-20 11:33:19"
+    }
+}
